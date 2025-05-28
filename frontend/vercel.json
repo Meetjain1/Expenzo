@@ -1,8 +1,6 @@
 {
   "git": {
-    "deploymentEnabled": {
-      "main": true
-    }
+    "deploymentEnabled": false
   },
   "framework": "create-react-app",
   "buildCommand": "npm run build",
