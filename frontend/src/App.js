@@ -111,6 +111,20 @@ const App = () => {
       document.body.appendChild(watermark);
     }
 
+    // Runtime invisible code watermark
+    if (process.env.NODE_ENV === 'production') {
+      const watermark = document.createElement('div');
+      watermark.innerText = '© 2024 Meet Jain - Expenzo - Watermark: 7f3e1b2c';
+      watermark.style.position = 'absolute';
+      watermark.style.left = '-9999px';
+      watermark.style.top = '-9999px';
+      watermark.style.opacity = '0';
+      watermark.style.pointerEvents = 'none';
+      watermark.style.userSelect = 'none';
+      watermark.setAttribute('data-watermark', 'expenzo-7f3e1b2c');
+      document.body.appendChild(watermark);
+    }
+
     // Console warning
     setTimeout(() => {
       if (window.console) {

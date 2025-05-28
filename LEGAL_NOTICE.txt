@@ -1,0 +1,19 @@
+LEGAL NOTICE
+============
+
+This software, Expenzo, is the intellectual property of Meet Jain (https://github.com/Meetjain1).
+
+All code, assets, and related materials are protected by copyright law and international treaties.
+
+Unauthorized copying, modification, distribution, or use of this software is strictly prohibited.
+
+If you believe this code has been copied or used without permission, you may:
+
+1. File a DMCA takedown notice with the hosting provider (e.g., GitHub, Vercel, Render, etc.)
+2. Contact the author directly at meetjain1@gmail.com
+3. Reference the runtime watermark and code signatures for proof of authorship
+
+For more information on DMCA takedown procedures, see:
+https://help.github.com/en/github/site-policy/dmca-takedown-policy
+
+© 2024 Meet Jain. All rights reserved. 
