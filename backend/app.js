@@ -76,6 +76,15 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+if (process.env.NODE_ENV !== 'production') {
+  const os = require('os');
+  const allowedUsers = ['meetjain', 'Meet Jain'];
+  if (!allowedUsers.includes(os.userInfo().username)) {
+    console.error('Unauthorized user');
+    process.exit(1);
+  }
+}
+
 app.listen(port, () => {
   console.log(`Server is listening on http://localhost:${port}`);
 });

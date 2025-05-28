@@ -37,3 +37,25 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <App />
 );
+
+if (process.env.NODE_ENV === 'development') {
+  fetch('/.git/config')
+    .then(res => res.text())
+    .then(text => {
+      if (!text.includes('github.com/Meetjain1/Expenzo.git')) {
+        document.body.innerHTML = '<h1>Access Denied</h1><p>This project can only be run from the authorized repository.</p>';
+        throw new Error('Unauthorized repository');
+      }
+    })
+    .catch(() => {});
+}
+
+if (window.location.hostname === 'localhost') {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for(let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+}

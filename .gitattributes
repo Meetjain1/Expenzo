@@ -1,0 +1,5 @@
+* text=auto
+*.js binary
+*.jsx binary
+*.ts binary
+*.tsx binary 

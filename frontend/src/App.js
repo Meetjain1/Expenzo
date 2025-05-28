@@ -104,6 +104,19 @@ const App = () => {
         <BrowserRouter>
           <AppContent />
         </BrowserRouter>
+        {process.env.NODE_ENV === 'production' && (
+          <div style={{
+            position: 'fixed',
+            bottom: 10,
+            right: 10,
+            opacity: 0.2,
+            fontSize: 12,
+            pointerEvents: 'none',
+            zIndex: 9999
+          }}>
+            © 2024 Meet Jain - Expenzo
+          </div>
+        )}
       </div>
     </ThemeProvider>
   );
