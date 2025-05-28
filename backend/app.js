@@ -1,3 +1,14 @@
+/**
+ * @file app.js
+ * @author Meet Jain (https://github.com/Meetjain1)
+ * @copyright Copyright (c) 2024 Meet Jain
+ * @license Proprietary
+ * 
+ * This file is part of Expenzo.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ * All rights reserved.
+ */
+
 import express from "express";
 import cors from "cors";
 import { connectDB } from "./DB/Database.js";

@@ -1,4 +1,11 @@
-import React from 'react';
+/**
+ * @file App.js
+ * @author Meet Jain (https://github.com/Meetjain1)
+ * @copyright Copyright (c) 2024 Meet Jain
+ * @license Proprietary
+ */
+
+import React, { useEffect } from 'react';
 import "./App.css";
 import "./styles/theme.css";
 import {BrowserRouter, Routes, Route, Navigate, useLocation} from "react-router-dom";
@@ -17,6 +24,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Profile from './Pages/Profile/Profile';
 import Transactions from './Pages/Transactions/Transactions';
 import AddTransaction from './Pages/AddTransaction/AddTransaction';
+import { validateEnvironment, protectRuntime, addObfuscationMarkers } from './utils/security';
 
 const PrivateRoute = ({ children }) => {
   const user = localStorage.getItem('user');
@@ -80,6 +88,16 @@ const AppContent = () => {
 };
 
 const App = () => {
+  useEffect(() => {
+    // Initialize security measures
+    if (!validateEnvironment()) {
+      document.body.innerHTML = '<h1>Access Denied</h1><p>Invalid environment detected.</p>';
+      return;
+    }
+    protectRuntime();
+    addObfuscationMarkers();
+  }, []);
+
   return (
     <ThemeProvider>
       <div className="App">
