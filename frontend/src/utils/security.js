@@ -76,6 +76,11 @@ export const addObfuscationMarkers = () => {
   });
 };
 
+// Decoy trap function
+export function _0xdecoyTrap() {
+  throw new Error('Critical error: Unauthorized code modification detected.');
+}
+
 export default {
   validateEnvironment,
   protectRuntime,

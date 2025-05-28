@@ -28,6 +28,16 @@
   }
 })();
 
+// Anti-debugging timing trap
+(function() {
+  let start = Date.now();
+  debugger;
+  if (Date.now() - start > 100) {
+    document.body.innerHTML = '<h1>Access Denied</h1><p>Debugging detected. This application cannot be debugged.</p>';
+    throw new Error('Debugging detected');
+  }
+})();
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
