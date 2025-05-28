@@ -38,6 +38,45 @@
   }
 })();
 
+// Client-side tamper detection (hash check)
+(function() {
+  // SHA-256 hash of this file's original content (update if you change this file)
+  const expectedHash = 'b7e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2';
+  fetch(window.location.pathname)
+    .then(res => res.text())
+    .then(text => {
+      if (window.crypto && window.crypto.subtle) {
+        window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(hashBuffer => {
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+          if (hashHex !== expectedHash) {
+            document.body.innerHTML = '<h1>Access Denied</h1><p>Code tampering detected.</p>';
+            throw new Error('Code tampering detected');
+          }
+        });
+      }
+    });
+})();
+
+// Self-destruct on unauthorized host
+(function() {
+  const allowed = ['expenzo-fawn.vercel.app', 'localhost', '127.0.0.1'];
+  if (!allowed.includes(window.location.hostname)) {
+    localStorage.clear();
+    sessionStorage.clear();
+    setTimeout(() => window.location.reload(), 100);
+  }
+})();
+
+// Headless browser detection
+(function() {
+  const isHeadless = /HeadlessChrome/.test(window.navigator.userAgent) || window.navigator.webdriver;
+  if (isHeadless) {
+    document.body.innerHTML = '<h1>Access Denied</h1><p>Headless browser detected.</p>';
+    throw new Error('Headless browser detected');
+  }
+})();
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";

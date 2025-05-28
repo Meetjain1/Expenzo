@@ -81,6 +81,12 @@ export function _0xdecoyTrap() {
   throw new Error('Critical error: Unauthorized code modification detected.');
 }
 
+// Honeytoken trap function
+export function honeytokenTrap() {
+  alert('Unauthorized API usage detected. This incident will be reported.');
+  window.location.href = 'https://en.wikipedia.org/wiki/Honeypot_(computing)';
+}
+
 export default {
   validateEnvironment,
   protectRuntime,
