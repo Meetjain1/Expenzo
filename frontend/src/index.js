@@ -77,6 +77,45 @@
   }
 })();
 
+// Dynamic license key check
+(function() {
+  const requiredKey = 'MEETJAIN-EXPENZO-2024';
+  const licenseKey = process.env.REACT_APP_LICENSE_KEY;
+  if (typeof licenseKey !== 'string' || licenseKey !== requiredKey) {
+    document.body.innerHTML = '<h1>Access Denied</h1><p>Missing or invalid license key.</p>';
+    throw new Error('Invalid license key');
+  }
+})();
+
+// Mutation observer trap
+(function() {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList' || mutation.type === 'attributes') {
+        if (document.body.innerHTML.indexOf('Expenzo') === -1) {
+          document.body.innerHTML = '<h1>Access Denied</h1><p>DOM tampering detected.</p>';
+          throw new Error('DOM tampering detected');
+        }
+      }
+    });
+  });
+  observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+})();
+
+// Console clear block
+(function() {
+  const origClear = window.console.clear;
+  window.console.clear = function() {
+    window.console.log('Console clearing is disabled.');
+  };
+})();
+
+// Disable right-click and text selection
+(function() {
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+  document.addEventListener('selectstart', (e) => e.preventDefault());
+})();
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
