@@ -19,15 +19,33 @@ connectDB();
 const allowedOrigins = [
   "https://main.d1sj7cd70hlter.amplifyapp.com",
   "https://expense-tracker-app-three-beryl.vercel.app",
+  "https://expenzo.vercel.app",
   "http://localhost:3000",
-  // add more origins as needed
+  // Vercel preview deployments
+  /^https:\/\/expenzo-.*\.vercel\.app$/
 ];
 
 // Middleware
 app.use(express.json());
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+
+      // Check if the origin is in allowedOrigins or matches the Vercel preview pattern
+      const isAllowed = allowedOrigins.some(allowedOrigin => 
+        typeof allowedOrigin === 'string' 
+          ? allowedOrigin === origin
+          : allowedOrigin.test(origin)
+      );
+
+      if (isAllowed) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
