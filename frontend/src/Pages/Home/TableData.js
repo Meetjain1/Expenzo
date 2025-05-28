@@ -6,20 +6,44 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "./home.css";
 import { deleteTransactions, editTransactions } from "../../utils/ApiRequest";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const TableData = (props) => {
   const [show, setShow] = useState(false);
   const [transactions, setTransactions] = useState([]);
-  // const [loading, setLoading] = useState(false);
   const [editingTransaction, setEditingTransaction] = useState(null);
   const [currId, setCurrId] = useState(null);
   const [refresh, setRefresh] = useState(false);
-  const [user, setUser] = useState(null);
+  const [values, setValues] = useState({
+    title: "",
+    amount: "",
+    category: "",
+    description: "",
+    transactionType: "",
+    date: "",
+  });
+
+  const handleClose = () => {
+    setShow(false);
+    setEditingTransaction(null);
+    setValues({
+      title: "",
+      amount: "",
+      category: "",
+      description: "",
+      transactionType: "",
+      date: "",
+    });
+  };
+
+  const handleShow = () => setShow(true);
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
   const handleEditClick = (itemKey) => {
-    // const buttonId = e.target.id;
-    console.log("Clicked button ID:", itemKey);
-    if (transactions.length > 0) {
+    if (props.data.length > 0) {
       const editTran = props.data.filter((item) => item._id === itemKey);
       setCurrId(itemKey);
       setEditingTransaction(editTran);
@@ -28,66 +52,45 @@ const TableData = (props) => {
   };
 
   const handleEditSubmit = async (e) => {
-    // e.preventDefault();
+    try {
+      const { data } = await axios.put(`${editTransactions}/${currId}`, {
+        ...values,
+      });
 
-    const {data} = await axios.put(`${editTransactions}/${currId}`, {
-      ...values,
-    });
-
-    if(data.success === true){
-
-      await handleClose();
-      await setRefresh(!refresh);
-      window.location.reload();
+      if (data.success) {
+        handleClose();
+        setRefresh(!refresh);
+        toast.success("Transaction updated successfully");
+        window.location.reload();
+      } else {
+        toast.error("Failed to update transaction");
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to update transaction");
     }
-    else{
-      console.log("error");
-    }
-
-  }
+  };
 
   const handleDeleteClick = async (itemKey) => {
-    console.log(user._id);
-    console.log("Clicked button ID delete:", itemKey);
-    setCurrId(itemKey);
-    const {data} = await axios.post(`${deleteTransactions}/${itemKey}`,{
-      userId: props.user._id,
-    });
+    try {
+      const { data } = await axios.post(`${deleteTransactions}/${itemKey}`, {
+        userId: props.user._id,
+      });
 
-    if(data.success === true){
-      await setRefresh(!refresh);
-      window.location.reload();
+      if (data.success) {
+        setRefresh(!refresh);
+        toast.success("Transaction deleted successfully");
+        window.location.reload();
+      } else {
+        toast.error("Failed to delete transaction");
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to delete transaction");
     }
-    else{
-      console.log("error");
-    }
-
-  };
-
-  const [values, setValues] = useState({
-    title: "",
-    amount: "",
-    description: "",
-    category: "",
-    date: "",
-    transactionType: "",
-  });
-
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
-
-  const handleClose = () => {
-    setShow(false);
-  };
-  const handleShow = () => {
-    setShow(true);
   };
 
   useEffect(() => {
-    setUser(props.user);
     setTransactions(props.data);
-  }, [props.data,props.user, refresh]);
+  }, [props.data, refresh]);
 
   return (
     <>

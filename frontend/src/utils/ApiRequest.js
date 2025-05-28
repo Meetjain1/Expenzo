@@ -1,5 +1,6 @@
-// const host = "https://expense-tracker-app-knl1.onrender.com";
-const host = "http://localhost:8080";
+import config from '../config/config';
+
+const host = config.apiUrl;
 export const setAvatarAPI = `${host}/api/auth/setAvatar`;
 export const registerAPI = `${host}/api/auth/register`;
 export const loginAPI = `${host}/api/auth/login`;

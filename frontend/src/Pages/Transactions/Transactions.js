@@ -8,11 +8,7 @@ import * as BsIcons from 'react-icons/bs';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import './Transactions.css';
-
-const host = "http://localhost:8080";
-const getTransactions = `${host}/api/v1/getTransaction`;
-const updateTransaction = `${host}/api/v1/updateTransaction`;
-const deleteTransaction = `${host}/api/v1/deleteTransaction`;
+import { getTransactions, editTransactions as updateTransaction, deleteTransactions } from '../../utils/ApiRequest';
 
 const Transactions = () => {
   const navigate = useNavigate();
@@ -104,7 +100,7 @@ const Transactions = () => {
   const handleDeleteConfirm = async () => {
     try {
       const user = JSON.parse(localStorage.getItem('user'));
-      const { data } = await axios.post(`${deleteTransaction}/${selectedTransaction._id}`, {
+      const { data } = await axios.post(`${deleteTransactions}/${selectedTransaction._id}`, {
         userId: user._id,
       });
       if (data.success) {

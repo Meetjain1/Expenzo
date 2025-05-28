@@ -5,9 +5,9 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import * as BiIcons from 'react-icons/bi';
 import './Profile.css';
+import config from '../../config/config';
 
-const host = "http://localhost:8080";
-const editProfile = `${host}/api/auth/editProfile`;
+const editProfile = `${config.apiUrl}/api/auth/editProfile`;
 
 const Profile = () => {
   const navigate = useNavigate();
