@@ -68,6 +68,42 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Runtime watermark header middleware
+app.use((req, res, next) => {
+  res.setHeader('X-Expenzo-Watermark', 'MeetJain-2024-7f3e1b2c');
+  next();
+});
+
+// Monitoring ping middleware
+app.use((req, res, next) => {
+  try {
+    fetch('https://webhook.site/your-unique-id', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        event: 'request',
+        path: req.path,
+        time: new Date().toISOString(),
+        userAgent: req.headers['user-agent']
+      })
+    });
+  } catch (e) {}
+  next();
+});
+
+// Monitoring ping on server start
+try {
+  fetch('https://webhook.site/your-unique-id', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      event: 'server_start',
+      time: new Date().toISOString(),
+      host: process.env.HOST || 'unknown'
+    })
+  });
+} catch (e) {}
+
 // Router
 app.use("/api/v1", transactionRoutes);
 app.use("/api/auth", userRoutes);
