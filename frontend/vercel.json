@@ -1,12 +1,17 @@
 {
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  },
+  "framework": "create-react-app",
+  "buildCommand": "npm run build",
+  "devCommand": "npm start",
+  "outputDirectory": "build",
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "buildCommand": "npm run build",
-  "devCommand": "npm start",
-  "outputDirectory": "build",
-  "framework": "create-react-app"
+  ]
 } 
