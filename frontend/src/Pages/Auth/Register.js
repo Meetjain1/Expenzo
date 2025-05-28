@@ -46,7 +46,7 @@ const Register = () => {
       toast.error("Password should be at least 6 characters");
       return;
     }
-
+     
     setLoading(true);
     try {
       const { data } = await axios.post(registerAPI, {
@@ -61,9 +61,9 @@ const Register = () => {
     } catch (error) {
       toast.error(error.response?.data?.message || "An error occurred");
     } finally {
-      setLoading(false);
-    }
-  };
+        setLoading(false);
+      }
+    };
 
   return (
     <AuthLayout>
@@ -120,7 +120,7 @@ const Register = () => {
             Already have an account? <Link to="/login">Login</Link>
           </div>
         </div>
-      </div>
+    </div>
     </AuthLayout>
   );
 };

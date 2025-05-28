@@ -20,6 +20,7 @@ const allowedOrigins = [
   "https://main.d1sj7cd70hlter.amplifyapp.com",
   "https://expense-tracker-app-three-beryl.vercel.app",
   "https://expenzo.vercel.app",
+  "https://expenzo-fawn.vercel.app",
   "http://localhost:3000",
   // Vercel preview deployments
   /^https:\/\/expenzo-.*\.vercel\.app$/
