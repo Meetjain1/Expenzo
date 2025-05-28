@@ -1,0 +1,207 @@
+.add-transaction-container {
+  min-height: calc(100vh - 70px);
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.add-transaction-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+}
+
+.add-transaction-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.add-transaction-header h2 {
+  color: var(--text-color);
+  font-weight: 600;
+  margin: 0;
+}
+
+.add-transaction-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: var(--text-secondary);
+}
+
+.category-select {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.category-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-option:hover {
+  border-color: var(--primary-color);
+  background-color: var(--hover-bg);
+}
+
+.category-option.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.category-icon {
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.category-name {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.transaction-type-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.transaction-type-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.transaction-type-option:hover {
+  border-color: var(--primary-color);
+  background-color: var(--hover-bg);
+}
+
+.transaction-type-option.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.transaction-type-option.income {
+  color: var(--success-color);
+}
+
+.transaction-type-option.expense {
+  color: var(--danger-color);
+}
+
+.transaction-type-icon {
+  font-size: 1.25rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.btn-save {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-save:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: var(--border-color);
+}
+
+.btn-cancel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.btn-cancel:hover {
+  background-color: var(--hover-bg);
+}
+
+@media (max-width: 768px) {
+  .add-transaction-card {
+    margin: 1rem;
+  }
+
+  .category-select {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+} 

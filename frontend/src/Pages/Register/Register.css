@@ -1,0 +1,330 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.brand h1 {
+  color: var(--text-color);
+  font-weight: 600;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-focus-shadow);
+}
+
+.form-group input::placeholder {
+  color: var(--placeholder-color);
+}
+
+/* Dark mode specific styles */
+[data-theme='dark'] .form-group input::placeholder,
+[data-theme='dark'] .form-group .ant-input-password input::placeholder {
+  color: var(--dark-placeholder-color, #888);
+}
+
+[data-theme='dark'] .form-group input,
+[data-theme='dark'] .form-group .ant-input-password {
+  background-color: var(--dark-input-bg, #2d3748);
+  border-color: var(--dark-border-color, #4a5568);
+  color: var(--dark-text-color, #e2e8f0);
+}
+
+[data-theme='dark'] .form-group .ant-input-password input {
+    background-color: transparent; /* Ensure inner input inherits background */
+    color: var(--dark-text-color, #e2e8f0);
+    border-right: none;
+}
+
+[data-theme='dark'] .form-group input:focus,
+[data-theme='dark'] .form-group .ant-input-password:focus-within {
+  border-color: var(--dark-primary-color, #6366f1);
+  box-shadow: 0 0 0 2px var(--dark-primary-focus-shadow, rgba(99, 102, 241, 0.3));
+}
+
+[data-theme='dark'] .password-toggle {
+  color: var(--dark-text-secondary, #a0aec0);
+}
+
+[data-theme='dark'] .password-toggle:hover {
+  color: var(--dark-text-color, #e2e8f0);
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle:hover {
+  color: var(--text-color);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+  margin-top: 1.25rem;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.switch-auth {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+}
+
+.switch-auth a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.switch-auth a:hover {
+  text-decoration: underline;
+}
+
+.google-login-container {
+  margin: 2rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.divider {
+  color: var(--text-secondary);
+  margin: 2rem 0;
+  position: relative;
+  text-align: center;
+  font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Style the Google button container */
+.google-login-container > div {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the Google button */
+.google-login-container button {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  color: var(--text-color) !important;
+  font-family: inherit !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.google-login-container button:hover {
+  background-color: var(--border-color) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Styles for the Ant Design Input.Password wrapper */
+.form-group .ant-input-password {
+  display: flex; /* Crucial for aligning input and icon */
+  width: 100%;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0; /* Wrapper itself has no padding; inner elements will */
+}
+
+/* Styles for the actual input element INSIDE Input.Password */
+.form-group .ant-input-password input {
+  flex-grow: 1; /* Allows input to take up available space */
+  padding: 0.75rem; /* Match regular input padding */
+  background-color: transparent; /* Transparent to show wrapper's bg */
+  border: none; /* No border for the inner input itself */
+  color: var(--text-color);
+  font-size: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem 0 0 0.5rem; /* Keep left border radius */
+}
+
+/* Styles for the icon suffix container INSIDE Input.Password */
+.form-group .ant-input-password .ant-input-suffix {
+  display: flex;
+  align-items: center;
+  padding-right: 0.75rem; /* Padding for the icon */
+  background-color: transparent; /* Transparent to show wrapper's bg */
+  border: none; /* No border for the suffix container */
+}
+
+/* Dark mode overrides for Input.Password */
+[data-theme='dark'] .form-group .ant-input-password {
+  background-color: var(--dark-input-bg, #2d3748);
+  border-color: var(--dark-border-color, #4a5568);
+}
+
+[data-theme='dark'] .form-group .ant-input-password input {
+  color: var(--dark-text-color, #e2e8f0);
+  /* background remains transparent, border remains none */
+}
+
+[data-theme='dark'] .form-group .ant-input-password .ant-input-suffix {
+  /* background remains transparent, border remains none */
+}
+
+/* Ensure placeholder styles apply to password input as well */
+.form-group input::placeholder,
+.form-group .ant-input-password input::placeholder {
+  color: var(--placeholder-color);
+}
+
+[data-theme='dark'] .form-group input::placeholder,
+[data-theme='dark'] .form-group .ant-input-password input::placeholder {
+  color: var(--dark-placeholder-color, #888);
+}
+
+/* Focus styles for all inputs, including password wrapper */
+.form-group input:focus,
+[data-theme='dark'] .form-group input:focus,
+.form-group .ant-input-password:focus-within,
+[data-theme='dark'] .form-group .ant-input-password:focus-within {
+  border-color: var(--dark-primary-color, #6366f1);
+  box-shadow: 0 0 0 2px var(--dark-primary-focus-shadow, rgba(99, 102, 241, 0.3));
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+  .auth-card * { /* Apply border-box to all children */
+    box-sizing: border-box;
+  }
+
+  .auth-card {
+    padding: 1.5rem 1rem; /* Adjusted padding slightly */
+    margin: 0.5rem;
+    max-width: 100%; /* Allow full use of available width minus margin */
+    width: auto; /* Ensure it doesn't try to be 400px */
+  }
+
+  .form-group {
+    margin-bottom: 1rem; /* Slightly reduce bottom margin */
+  }
+
+  /* Reduce margin from Ant Design Form.Item */
+  .form-group .ant-form-item {
+    margin-bottom: 0 !important; /* Override Ant Design's margin */
+  }
+
+  .form-group label {
+    font-size: 0.875rem; /* Smaller labels */
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .form-group input,
+  .form-group .ant-input-password,
+  .form-group .ant-input-password input {
+    font-size: 0.875rem; /* Smaller input text */
+    padding: 0.6rem; /* Adjust padding */
+    height: auto; /* Ensure height is not fixed if AntD sets it */
+  }
+
+  .form-group .ant-input-password .ant-input-suffix {
+    padding-right: 0.6rem; /* Adjust icon padding */
+  }
+
+  .submit-btn {
+    padding: 0.7rem;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .divider,
+  .google-login-container {
+    margin: 1.25rem 0;
+  }
+
+  .switch-auth {
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .brand h1 {
+    font-size: 1.7rem;
+  }
+} 

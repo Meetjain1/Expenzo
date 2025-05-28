@@ -1,0 +1,54 @@
+.google-login-container {
+  margin: 1.5rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.divider {
+  color: var(--text-secondary);
+  margin: 1.5rem 0;
+  position: relative;
+  text-align: center;
+  font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Style the Google button container */
+.google-login-container > div {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the Google button */
+.google-login-container button {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  color: var(--text-color) !important;
+  font-family: inherit !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.google-login-container button:hover {
+  background-color: var(--border-color) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+} 

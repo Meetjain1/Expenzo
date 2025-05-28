@@ -1,0 +1,153 @@
+.navbar-main {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 3rem;
+}
+
+.brand-icon {
+  background-color: var(--primary-color);
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.brand-text {
+  font-size: 2.2rem;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  padding-top: 0.1rem;
+}
+
+.nav-link {
+  color: var(--text-color) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--border-color);
+}
+
+.nav-link svg {
+  font-size: 1.2rem;
+}
+
+.theme-toggle {
+  color: var(--text-color) !important;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background-color: var(--border-color);
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+.logout-btn:hover {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: white;
+}
+
+.signup-btn {
+  background-color: var(--primary-color);
+  color: white !important;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.signup-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+  }
+
+  .nav-link {
+    margin: 0.25rem 0;
+  }
+
+  .logout-btn {
+    margin: 0.5rem 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .theme-toggle {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .navbar .theme-toggle,
+  .navbar .navbar-toggler { /* Assuming navbar-toggler is used for the hamburger menu */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem; /* Ensure touch target is adequate */
+    min-width: 40px; /* Minimum touch target width */
+    min-height: 40px; /* Minimum touch target height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Specific adjustment if only theme-toggle is outside collapsed area and needs margin */
+  .navbar-nav .theme-toggle { /* If theme toggle is part of nav items that collapse */
+    margin: 0.5rem 0; /* Keep existing behavior if inside collapsed menu */
+  }
+  
+  /* If theme toggle is always visible and next to brand/toggler */
+  .navbar > .container,
+  .navbar > .container-fluid {
+    position: relative; /* For potential absolute positioning of toggles if needed */
+  }
+
+  /* Example: Push theme toggle to the right if it's not part of the collapsable menu */
+  /* .navbar .theme-toggle:not(.navbar-nav .theme-toggle) {
+    margin-left: auto; 
+  } */
+} 

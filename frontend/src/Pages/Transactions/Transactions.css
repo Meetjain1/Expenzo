@@ -1,0 +1,346 @@
+.transactions-container {
+  padding: 2rem 0;
+  min-height: calc(100vh - 70px);
+  background-color: var(--bg-color);
+}
+
+.transactions-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.transactions-title {
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.add-new-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  min-width: auto;
+  width: auto;
+}
+
+.add-new-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.filters-section {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.form-control:focus {
+  background-color: var(--input-bg);
+  border-color: var(--primary-color);
+  color: var(--text-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.form-select {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.form-select:focus {
+  background-color: var(--input-bg);
+  border-color: var(--primary-color);
+  color: var(--text-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Table styles */
+.table {
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  padding: 1rem;
+}
+
+.table tbody td {
+  color: var(--text-color) !important;
+  background-color: var(--card-bg) !important;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--hover-bg) !important;
+  color: var(--text-color) !important;
+}
+
+[data-theme='dark'] .table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Transaction type badges */
+.transaction-type {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.transaction-type.income {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.transaction-type.expense {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  transform: translateY(-1px);
+}
+
+.btn-edit {
+  color: var(--primary-color);
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.btn-delete {
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Modal styles */
+.modal-content {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color);
+}
+
+.modal-header, .modal-footer {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.btn-action {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.btn-save {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.btn-save:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: var(--border-color);
+}
+
+.btn-cancel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.btn-cancel:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Fix for date picker in dark mode */
+.react-datepicker {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+.react-datepicker__header {
+  background-color: var(--card-bg) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.react-datepicker__day {
+  color: var(--text-color) !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Loading state */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .transactions-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .add-new-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filters-section {
+    margin-bottom: 1rem;
+  }
+  
+  .table thead {
+    display: none; /* Hide table headers on mobile */
+  }
+
+  .table tbody, .table tr, .table td {
+    display: block;
+    width: 100% !important; /* Override Bootstrap's !important */
+  }
+
+  .table tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: var(--card-bg); /* Ensure rows have background */
+  }
+
+  .table td {
+    text-align: right; /* Align text to the right for data */
+    position: relative;
+    padding-left: 50%; /* Make space for the label */
+    border-bottom: 1px dashed var(--border-color) !important; /* Lighter separator */
+  }
+  
+  .table td:last-child {
+    border-bottom: none !important; /* No border for the last cell (actions) */
+    padding-bottom: 0.5rem; /* Adjust spacing for actions */
+  }
+
+  .table td::before {
+    content: attr(data-label); /* Use data-label for the heading */
+    position: absolute;
+    left: 0.75rem; /* Align label to the left */
+    width: 45%; /* Width of the label */
+    padding-right: 0.75rem;
+    font-weight: bold;
+    text-align: left; /* Align label text to the left */
+    white-space: nowrap;
+    color: var(--text-secondary); /* Different color for labels */
+    display: inline-block; /* Ensure it displays */
+    min-height: 1em; /* Ensure it has some height */
+  }
+
+  .action-buttons {
+    justify-content: flex-end; /* Align action buttons to the right */
+    margin-top: 0.5rem;
+  }
+
+  .table td .transaction-type {
+    float: none;
+    display: inline-block;
+    margin-right: 0;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    vertical-align: middle;
+  }
+} 

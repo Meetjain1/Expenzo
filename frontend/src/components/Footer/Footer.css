@@ -1,0 +1,73 @@
+.footer {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.footer h5 {
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.footer p {
+  color: var(--text-secondary);
+}
+
+.footer-logo {
+  background-color: var(--primary-color);
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+  background-color: var(--input-bg);
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+[data-theme='dark'] .footer {
+  border-top-color: var(--border-color);
+}
+
+[data-theme='dark'] .footer-logo {
+  --logo-brightness: 0.8;
+}
+
+[data-theme='light'] .footer-logo {
+  --logo-brightness: 1;
+} 

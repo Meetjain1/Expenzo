@@ -1,0 +1,91 @@
+:root {
+  /* Light theme */
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-color: #1a1a1a;
+  --text-secondary: #666666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --input-bg: #f8f9fa;
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+  --calendar-invert: 0;
+  --btn-close-invert: 0;
+}
+
+[data-theme='dark'] {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --input-bg: #1e293b;
+  --primary-color: #818cf8;
+  --primary-hover: #6366f1;
+  --success-color: #4ade80;
+  --danger-color: #f87171;
+  --warning-color: #fbbf24;
+  --hover-bg: rgba(255, 255, 255, 0.05);
+  --calendar-invert: 1;
+  --btn-close-invert: 1;
+}
+
+/* Global styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.form-control:focus {
+  background-color: var(--input-bg);
+  border-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+/* Toast customization */
+.Toastify__toast {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.Toastify__toast--success {
+  border-left: 4px solid var(--success-color) !important;
+}
+
+.Toastify__toast--error {
+  border-left: 4px solid var(--danger-color) !important;
+}
+
+/* Transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+} 
